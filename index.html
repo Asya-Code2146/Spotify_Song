@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Preview & Open Spotify Playlist</title>
+  <meta name="description" content="Tombol elegan untuk menuju playlist Spotify — dengan animasi fade slow sebelum redirect." />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-animate" aria-hidden="true"></div>
+
+  <div class="wrap" role="main">
+    <div class="card" aria-labelledby="playlistTitle">
+      <div class="cover" id="coverContainer">
+        <img id="coverImg" alt="Cover playlist" src="" />
+      </div>
+
+      <div class="meta">
+        <div class="title" id="playlistTitle">Loading…</div>
+        <div class="subtitle" id="playlistOwner">—</div>
+
+        <div class="actions">
+          <button class="btn primary" id="openSpotify" type="button">
+            <svg width="16" height="16" viewBox="0 0 168 168" fill="none" aria-hidden focusable="false">
+              <path fill="#1db954" d="M84 0a84 84 0 1 0 0 168A84 84 0 0 0 84 0zm38.7 121.6a5.1 5.1 0 0 1-7 1.7c-19.2-11.7-43.3-14.3-71.6-7.9a5.1 5.1 0 1 1-2.3-9.9c31.1-7.2 58.4-4.1 80.5 9.1a5.1 5.1 0 0 1 1.9 7zM123 96.4a6.5 6.5 0 0 1-8.8 2.2c-22.2-13.1-55.9-16.9-82.2-9.4a6.5 6.5 0 1 1-3.8-12.4c29.9-9.3 67.7-5.2 93.3 11.1a6.5 6.5 0 0 1 1.5 8.5zM125 74.5a7.8 7.8 0 0 1-10.6 2.7c-25.1-14.9-67.2-18.8-90.6-10.5a7.8 7.8 0 1 1-4.4-14.9c28.9-8.6 74.2-4.1 103.8 12.5a7.8 7.8 0 0 1 1.8 12.9z"/>
+            </svg>
+            Buka di Spotify
+          </button>
+
+          <button class="btn ghost" id="openWeb" type="button">Buka di Web Player</button>
+        </div>
+
+        <div style="margin-top:12px" class="info" id="extraInfo">Klik "Buka di Spotify" untuk menuju aplikasi Spotify (atau pilih Web Player).</div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="card preview" id="previewArea">Preview akan muncul di sini…</div>
+
+      <div class="card" style="padding:12px">
+        <div style="display:flex; justify-content:space-between; align-items:center">
+          <div style="font-weight:700">Embed Preview</div>
+          <div style="color:var(--muted); font-size:13px"></div>
+        </div>
+        <div id="embedHolder" style="margin-top:12px"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- overlay shown right after user clicks open (slow fade) -->
+  <div id="overlay" class="overlay" role="status" aria-hidden="true">
+    <div class="panel" role="dialog" aria-live="polite">
+      <div class="cover-small">
+        <img id="smallCover" src="" alt="Cover kecil" style="width:100%; height:100%; object-fit:cover" />
+      </div>
+      <div class="meta-block">
+        <div class="t" id="metaTitle">Mengalihkan ke Spotify…</div>
+        <div class="s" id="metaSub">Silakan tunggu — aplikasi Spotify akan terbuka.</div>
+      </div>
+
+      <div class="spinner" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
